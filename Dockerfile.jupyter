@@ -1,0 +1,47 @@
+FROM jupyter/scipy-notebook:latest
+
+USER root
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    libpq-dev \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+USER jovyan
+
+# Copy requirements
+COPY requirements.txt /tmp/requirements.txt
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Install additional Jupyter extensions
+RUN pip install \
+    jupyterlab-git \
+    jupyter-dash \
+    ipywidgets \
+    voila \
+    nbconvert
+
+# Enable Jupyter extensions
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+# Create workspace directories
+RUN mkdir -p /home/jovyan/work/notebooks \
+    /home/jovyan/work/src \
+    /home/jovyan/work/data \
+    /home/jovyan/work/outputs
+
+# Set working directory
+WORKDIR /home/jovyan/work
+
+# Expose port
+EXPOSE 8888
+
+# Start Jupyter Lab
+CMD ["start-notebook.sh", "--NotebookApp.token=''", "--NotebookApp.password=''"] 
