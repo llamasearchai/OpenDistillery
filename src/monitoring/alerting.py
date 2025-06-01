@@ -166,7 +166,7 @@ class AlertManager:
         """Setup default alert channels"""
         self.channels['email'] = EmailAlertChannel(
             'email',
-            {'recipients': ['admin@opendistillery.ai']}
+            {'recipients': ['nikjois@llamasearch.ai']}
         )
         
         self.channels['slack'] = SlackAlertChannel(

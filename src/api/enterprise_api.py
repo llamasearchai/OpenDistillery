@@ -52,7 +52,7 @@ async def lifespan(app: FastAPI):
     try:
         admin_user = auth_manager.create_user(
             username="admin",
-            email="admin@opendistillery.ai",
+            email="nikjois@llamasearch.ai",
             password="admin123",  # Change in production
             role=UserRole.ADMIN
         )

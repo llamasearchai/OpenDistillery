@@ -519,10 +519,10 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
 
 ### Support Channels
 
-- **Enterprise Support**: enterprise@opendistillery.ai
+- **Enterprise Support**: nikjois@llamasearch.ai
 - **Documentation**: https://docs.opendistillery.ai
 - **Status Page**: https://status.opendistillery.ai
-- **Security Issues**: security@opendistillery.ai
+- **Security Issues**: nikjois@llamasearch.ai
 
 ### SLA & Performance Targets
 
@@ -542,7 +542,7 @@ OpenDistillery Enterprise is licensed under a commercial license for production 
 - **HIPAA** compliance for healthcare
 - **PCI DSS** for payment processing
 
-For licensing information, contact: licensing@opendistillery.ai
+For licensing information, contact: nikjois@llamasearch.ai
 
 ---
 
