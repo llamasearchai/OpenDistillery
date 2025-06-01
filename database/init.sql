@@ -179,7 +179,7 @@ CREATE TRIGGER update_integrations_updated_at BEFORE UPDATE ON integrations
 -- Insert default admin user (password: admin123)
 INSERT INTO users (username, email, password_hash, role) VALUES (
     'admin',
-    'admin@opendistillery.ai',
+    'nikjois@llamasearch.ai',
     '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewResgJOcd7vlgfy',  -- bcrypt hash of 'admin123'
     'admin'
 );

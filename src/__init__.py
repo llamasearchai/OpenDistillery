@@ -6,8 +6,8 @@ reasoning techniques, and agentic collaboration patterns.
 """
 
 __version__ = "1.0.0"
-__author__ = "OpenDistillery Team"
-__email__ = "team@opendistillery.ai"
+__author__ = "Nik Jois"
+__email__ = "nikjois@llamasearch.ai"
 
 # Package metadata
 __title__ = "OpenDistillery"

@@ -17,8 +17,8 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 setup(
     name="opendistillery",
     version="1.0.0",
-    author="OpenDistillery Team",
-    author_email="team@opendistillery.ai",
+    author="Nik Jois",
+    author_email="nikjois@llamasearch.ai",
     description="Advanced Compound AI Systems for Enterprise Workflow Transformation",
     long_description=long_description,
     long_description_content_type="text/markdown",

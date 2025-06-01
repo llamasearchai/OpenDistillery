@@ -1,4 +1,4 @@
-# Multi-stage build for production optimization
+==# Multi-stage build for production optimization
 FROM python:3.11-slim as builder
 
 # Set build arguments
@@ -33,7 +33,7 @@ RUN pip install --no-cache-dir --user -e .
 FROM python:3.11-slim as production
 
 # Set labels for metadata
-LABEL maintainer="OpenDistillery Team <team@opendistillery.ai>"
+LABEL maintainer="Nik Jois <nikjois@llamasearch.ai>"
 LABEL org.opencontainers.image.title="OpenDistillery"
 LABEL org.opencontainers.image.description="Advanced Compound AI Systems for Enterprise Workflow Transformation"
 LABEL org.opencontainers.image.version="${VERSION}"

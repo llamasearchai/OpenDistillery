@@ -1,6 +1,6 @@
 # OpenDistillery
 
-Enterprise-grade compound AI system for Fortune 500 companies and large-scale production deployments.
+A simple compound AI system for companies and any scale production deployments.
 
 ## Overview
 
