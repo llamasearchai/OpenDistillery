@@ -1,0 +1,170 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "opendistillery"
+version = "2.0.1"
+description = "Advanced Compound AI Systems for Enterprise Workflow Transformation"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Nik Jois", email = "nikjois@llamasearch.ai"}
+]
+maintainers = [
+    {name = "Nik Jois", email = "nikjois@llamasearch.ai"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Enterprise",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Distributed Computing",
+]
+keywords = [
+    "ai", "artificial-intelligence", "compound-ai", "multi-agent",
+    "enterprise", "workflow", "automation", "orchestration",
+    "openai", "anthropic", "grok", "llm", "machine-learning"
+]
+dependencies = [
+    "fastapi>=0.104.1",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.5.0",
+    "sqlalchemy>=2.0.23",
+    "alembic>=1.13.0",
+    "asyncpg>=0.29.0",
+    "redis>=5.0.1",
+    "celery>=5.3.4",
+    "prometheus-client>=0.19.0",
+    "structlog>=23.2.0",
+    "cryptography>=41.0.7",
+    "passlib[bcrypt]>=1.7.4",
+    "python-jose[cryptography]>=3.3.0",
+    "python-multipart>=0.0.6",
+    "httpx>=0.25.2",
+    "openai>=1.3.7",
+    "anthropic>=0.7.8",
+    "xai-sdk>=0.0.1a1",
+    "numpy>=1.24.3",
+    "pandas>=2.1.4",
+    "scikit-learn>=1.3.2",
+    "aiofiles>=23.2.1",
+    "python-dotenv>=1.0.0",
+    "pyjwt>=2.8.0",
+    "pyotp>=2.9.0",
+    "qrcode>=7.4.2",
+    "pillow>=10.1.0",
+    "requests>=2.31.0",
+    "click>=8.1.7",
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "black>=23.11.0",
+    "isort>=5.12.0",
+    "mypy>=1.7.1",
+    "flake8>=6.1.0",
+    "pre-commit>=3.6.0",
+    "twine>=4.0.2",
+    "build>=1.0.3",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/your-username/OpenDistillery"
+Documentation = "https://docs.opendistillery.ai"
+Repository = "https://github.com/your-username/OpenDistillery.git"
+Issues = "https://github.com/your-username/OpenDistillery/issues"
+Changelog = "https://github.com/your-username/OpenDistillery/blob/main/CHANGELOG.md"
+
+[project.scripts]
+opendistillery = "opendistillery.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-asyncio>=0.21.1",
+    "pytest-cov>=4.1.0",
+    "black>=23.11.0",
+    "isort>=5.12.0",
+    "mypy>=1.7.1",
+    "flake8>=6.1.0",
+    "pre-commit>=3.6.0",
+]
+docs = [
+    "mkdocs>=1.5.3",
+    "mkdocs-material>=9.4.8",
+    "mkdocs-mermaid2-plugin>=1.1.1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/opendistillery"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["opendistillery"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["src/opendistillery"]
+omit = ["*/tests/*", "*/test_*.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+] 

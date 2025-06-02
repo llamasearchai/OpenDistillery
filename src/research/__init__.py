@@ -1,30 +1,36 @@
 """
-OpenDistillery Research Framework
-Advanced AI research techniques and experimentation tools.
+OpenDistillery Research Module
+
+Advanced research techniques and experimental features:
+- Cutting-edge prompting strategies (2025)
+- Cognitive architectures
+- Reasoning systems
 """
 
-from .techniques import (
-    ReactEngine,
-    TreeOfThoughts,
-    GraphOfThoughts,
-    SelfConsistencyReasoner
-)
-from .experiment_runner import (
-    ExperimentRunner,
-    ExperimentConfiguration,
-    ExperimentVariant,
-    ExperimentMetric,
-    ExperimentResult
+from .techniques.prompting_strategies import (
+    PromptingOrchestrator,
+    PromptingStrategy,
+    BasePromptingStrategy,
+    TreeOfThoughtsStrategy,
+    ChainOfThoughtStrategy,
+    DiffusionPromptingStrategy,
+    QuantumSuperpositionStrategy,
+    NeuromorphicPromptingStrategy,
+    AdaptiveTemperatureStrategy,
+    PromptResult,
+    ThoughtNode
 )
 
 __all__ = [
-    "ReactEngine",
-    "TreeOfThoughts",
-    "GraphOfThoughts", 
-    "SelfConsistencyReasoner",
-    "ExperimentRunner",
-    "ExperimentConfiguration",
-    "ExperimentVariant",
-    "ExperimentMetric",
-    "ExperimentResult"
+    "PromptingOrchestrator",
+    "PromptingStrategy",
+    "BasePromptingStrategy",
+    "TreeOfThoughtsStrategy",
+    "ChainOfThoughtStrategy", 
+    "DiffusionPromptingStrategy",
+    "QuantumSuperpositionStrategy",
+    "NeuromorphicPromptingStrategy",
+    "AdaptiveTemperatureStrategy",
+    "PromptResult",
+    "ThoughtNode"
 ] 

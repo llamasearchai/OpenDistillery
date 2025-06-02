@@ -1,16 +1,41 @@
 """
 OpenDistillery Research Techniques
-Advanced reasoning and AI research implementations.
+
+Advanced prompting and reasoning techniques (2025):
+- Tree of Thoughts
+- Diffusion Prompting  
+- Quantum Superposition
+- Neuromorphic Prompting
+- Adaptive Temperature
+- Chain of Thought
 """
 
-from .react_engine import ReactEngine
-from .tree_of_thoughts import TreeOfThoughts
-from .graph_of_thoughts import GraphOfThoughts
-from .self_consistency import SelfConsistencyReasoner
+from .prompting_strategies import (
+    PromptingOrchestrator,
+    PromptingStrategy,
+    BasePromptingStrategy,
+    ZeroShotStrategy,
+    ChainOfThoughtStrategy,
+    TreeOfThoughtsStrategy,
+    DiffusionPromptingStrategy,
+    QuantumSuperpositionStrategy,
+    NeuromorphicPromptingStrategy,
+    AdaptiveTemperatureStrategy,
+    PromptResult,
+    ThoughtNode
+)
 
 __all__ = [
-    "ReactEngine",
-    "TreeOfThoughts", 
-    "GraphOfThoughts",
-    "SelfConsistencyReasoner"
+    "PromptingOrchestrator",
+    "PromptingStrategy",
+    "BasePromptingStrategy",
+    "ZeroShotStrategy",
+    "ChainOfThoughtStrategy",
+    "TreeOfThoughtsStrategy", 
+    "DiffusionPromptingStrategy",
+    "QuantumSuperpositionStrategy",
+    "NeuromorphicPromptingStrategy",
+    "AdaptiveTemperatureStrategy",
+    "PromptResult",
+    "ThoughtNode"
 ] 
