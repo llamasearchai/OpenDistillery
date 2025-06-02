@@ -1,114 +1,129 @@
 # OpenDistillery
 
-A simple compound AI system for companies and any scale production deployments.
+## Advanced Compound AI Systems for Enterprise Workflow Transformation
 
-## Overview
-
-OpenDistillery is an advanced AI orchestration platform that enables enterprises to build, deploy, and manage sophisticated compound AI systems. It provides a comprehensive framework for multi-agent workflows, advanced reasoning capabilities, and production-ready infrastructure.
+OpenDistillery is an enterprise-grade compound AI system designed for Fortune 500 companies and large-scale production deployments. It provides comprehensive multi-agent orchestration, advanced reasoning capabilities, and seamless integration with enterprise workflows.
 
 ## Features
 
-- **Advanced Reasoning Engines**: ReAct, Tree of Thoughts, and Graph of Thoughts implementations
-- **Multi-Agent System**: Specialized agents for reasoning, data processing, ML, and orchestration
-- **Enterprise Security**: JWT authentication, RBAC, API key management, and audit logging
-- **Production Monitoring**: Prometheus metrics, distributed tracing, health checks, and alerting
-- **Scalable Architecture**: Horizontal scaling, load balancing, and fault tolerance
-- **Enterprise Integrations**: Support for major enterprise systems and custom APIs
+### Core Capabilities
+- **Multi-Agent Orchestration**: Advanced coordination between specialized AI agents
+- **Compound AI Systems**: Sophisticated reasoning with multiple AI models
+- **Enterprise Integration**: Seamless integration with existing enterprise systems
+- **Real-time Processing**: High-performance concurrent task execution
+- **Advanced Security**: Enterprise-grade authentication and authorization
+
+### Enterprise Features
+- **Multi-Factor Authentication (MFA)** with TOTP support
+- **Role-Based Access Control (RBAC)** with granular permissions
+- **API Key Management** with expiration and rate limiting
+- **Comprehensive Monitoring** with Prometheus and Grafana
+- **Audit Logging** with correlation tracking
+- **Horizontal Scaling** with Docker and Kubernetes support
+
+### AI Model Support
+- **OpenAI** GPT-4, GPT-3.5, and Assistants API
+- **Anthropic** Claude models
+- **X.AI Grok** integration with real-time capabilities
+- **Custom Models** through standardized interfaces
 
 ## Quick Start
 
-### Prerequisites
-
-- Docker 24.0+ and Docker Compose 2.0+
-- Python 3.8+
-- 16GB+ RAM, 8+ CPU cores
-- PostgreSQL 15+ (or use Docker)
-- Redis 7+ (or use Docker)
-
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/llamasearchai/OpenDistillery.git
+pip install opendistillery
+```
+
+### Basic Usage
+
+```python
+from opendistillery import CompoundAISystem
+
+# Initialize the system
+system = CompoundAISystem()
+
+# Create a multi-agent workflow
+workflow = system.create_workflow("financial_analysis")
+
+# Execute compound reasoning
+result = workflow.execute({
+    "task": "Analyze quarterly financial performance",
+    "data": {"revenue": 1000000, "expenses": 800000}
+})
+
+print(result)
+```
+
+## Production Deployment
+
+### Docker Deployment
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/OpenDistillery.git
 cd OpenDistillery
-```
 
-2. Set up environment variables:
-```bash
-cp .env.example .env
-# Edit .env with your configuration
-```
+# Start the full stack
+docker-compose -f docker-compose.production.yml up -d
 
-3. Start with Docker Compose:
-```bash
-docker-compose up -d
-```
-
-4. Verify deployment:
-```bash
+# Verify deployment
 curl http://localhost:8000/health
 ```
 
-## Documentation
-
-- [Production Deployment Guide](README_PRODUCTION.md)
-- [API Documentation](http://localhost:8000/docs)
-- [Architecture Overview](docs/architecture.md)
-
-## Development
-
-### Local Setup
+### Kubernetes Deployment
 
 ```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run tests
-pytest
-
-# Start development server
-uvicorn src.api.server:app --reload
+# Deploy to Kubernetes
+kubectl apply -f deployment/k8s/
 ```
 
-### Running Tests
+## Configuration
+
+### Environment Variables
 
 ```bash
-# Run all tests
-pytest
+# Core Configuration
+SECRET_KEY=your-256-bit-secret-key
+DATABASE_URL=postgresql://user:pass@localhost/opendistillery
+REDIS_URL=redis://localhost:6379
 
-# Run with coverage
-pytest --cov=src
+# AI Model Configuration
+OPENAI_API_KEY=your-openai-api-key
+ANTHROPIC_API_KEY=your-anthropic-api-key
+XAI_API_KEY=your-xai-api-key
 
-# Run specific test file
-pytest tests/test_api.py
+# Security Configuration
+REQUIRE_MFA=true
+JWT_EXPIRY_HOURS=24
+API_RATE_LIMIT=100
+```
+
+## API Documentation
+
+### Authentication
+
+```bash
+# Login and get JWT token
+curl -X POST http://localhost:8000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "admin", "password": "password"}'
+```
+
+### Task Submission
+
+```bash
+# Submit a compound AI task
+curl -X POST http://localhost:8000/tasks \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "task_type": "financial_analysis",
+    "description": "Analyze Q4 performance",
+    "priority": "high"
+  }'
 ```
 
 ## Architecture
 
-OpenDistillery uses a microservices architecture with the following components:
-
-- **API Server**: FastAPI-based REST API
-- **Agent System**: Multi-agent orchestration framework
-- **Reasoning Engines**: Advanced AI reasoning implementations
-- **Database**: PostgreSQL for persistent storage
-- **Cache**: Redis for high-performance caching
-- **Monitoring**: Prometheus + Grafana stack
-
-## License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-
-## Support & Contact
-
-For enterprise support, partnership inquiries, or security issues, please contact:
-
-**Nik Jois**  
-Email: [nikjois@llamasearch.ai](mailto:nikjois@llamasearch.ai)
-
-## Contributing
-
-Please read our contributing guidelines before submitting pull requests.
+OpenDistillery implements a sophisticated compound AI architecture:

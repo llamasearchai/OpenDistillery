@@ -174,4 +174,31 @@ The OpenDistillery project is **fully functional, extensively tested, and produc
 - Full Docker containerization for deployment.
 - Detailed production and API documentation.
 
-The system successfully demonstrates a complete enterprise AI compound system, fulfilling all initial requirements, including automated testing, debugging, dockerization, FastAPI endpoints, and monitoring integration. It is now a stable and reliable platform. 
+The system successfully demonstrates a complete enterprise AI compound system, fulfilling all initial requirements, including automated testing, debugging, dockerization, FastAPI endpoints, and monitoring integration. It is now a stable and reliable platform.
+
+## Real-time information with Grok
+response = await get_grok_completion(
+    "What are the latest AI developments?",
+    real_time_info=True
+)
+
+# Vision analysis
+response = await analyze_image_with_grok(
+    "Analyze this chart", 
+    images=["chart.png"]
+)
+
+# Function calling
+async with GrokAPIClient() as client:
+    client.register_function(create_search_function())
+    response = await client.function_calling_completion(
+        "Search for AI news",
+        functions=[search_func],
+        execute_functions=True
+    )
+
+# Multi-provider fallback
+response = await get_best_completion(
+    "Complex analysis task",
+    providers=["grok-3", "o4", "claude-4-opus"]
+) 
