@@ -20,7 +20,7 @@ class MetaPromptingEngine(ResearchTechnique):
     
     def __init__(self):
         super().__init__()
-        self.name = "🎯 Meta-Prompting Engine"
+        self.name = " Meta-Prompting Engine"
         self.steps: List[MetaPromptStep] = []
         
     async def execute(self, request: Dict[str, Any]) -> Dict[str, Any]:

@@ -16,7 +16,7 @@ import json
 
 st.set_page_config(
     page_title="OpenDistillery Monitoring",
-    page_icon="🚀",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -32,7 +32,7 @@ class AdvancedMonitoringDashboard:
         """Render the complete monitoring dashboard"""
         
         # Dashboard header
-        st.title("🚀 OpenDistillery Advanced Monitoring Dashboard")
+        st.title(" OpenDistillery Advanced Monitoring Dashboard")
         st.markdown("Real-time system monitoring with predictive analytics")
         
         # Sidebar controls
@@ -42,23 +42,23 @@ class AdvancedMonitoringDashboard:
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            self.render_kpi_card("Total Requests", "1,247", "📊", "15.3%")
+            self.render_kpi_card("Total Requests", "1,247", "", "15.3%")
         
         with col2:
             self.render_kpi_card("Success Rate", "98.7%", "✅", "2.1%")
         
         with col3:
-            self.render_kpi_card("Avg Latency", "156ms", "⚡", "-8.4%")
+            self.render_kpi_card("Avg Latency", "156ms", "", "-8.4%")
         
         with col4:
             self.render_kpi_card("Cost Savings", "$1,250", "💰", "12.7%")
         
         # Main content areas
         tab1, tab2, tab3, tab4, tab5 = st.tabs([
-            "📊 Real-time Metrics", 
+            " Real-time Metrics", 
             "🧠 Technique Performance", 
-            "🔍 Quality Analytics", 
-            "⚠️ System Health",
+            " Quality Analytics", 
+            "⚠ System Health",
             "🤖 AI Insights"
         ])
         
@@ -80,7 +80,7 @@ class AdvancedMonitoringDashboard:
     def render_sidebar(self):
         """Render sidebar controls"""
         
-        st.sidebar.title("🔧 Dashboard Controls")
+        st.sidebar.title(" Dashboard Controls")
         
         # Time range selector
         time_range = st.sidebar.selectbox(
@@ -95,7 +95,7 @@ class AdvancedMonitoringDashboard:
             refresh_interval = st.sidebar.slider("Refresh Interval (seconds)", 1, 60, 5)
         
         # Filter options
-        st.sidebar.subheader("🔍 Filters")
+        st.sidebar.subheader(" Filters")
         
         selected_techniques = st.sidebar.multiselect(
             "Techniques",
@@ -124,7 +124,7 @@ class AdvancedMonitoringDashboard:
         """Render KPI card"""
         
         change_color = "green" if change.startswith("+") or not change.startswith("-") else "red"
-        change_icon = "📈" if change.startswith("+") else "📉" if change.startswith("-") else "➡️"
+        change_icon = "" if change.startswith("+") else "📉" if change.startswith("-") else "➡"
         
         st.markdown(f"""
         <div style="

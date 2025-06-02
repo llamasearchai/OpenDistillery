@@ -56,4 +56,4 @@ async def register_all_plugins():
     await registry.register_plugin(ConstitutionalAI, CONSTITUTIONAL_AI_METADATA) 
     await registry.register_plugin(GradientPromptOptimizer, GRADIENT_SEARCH_METADATA)
     
-    print("🎯 All OpenDistillery prompting plugins registered successfully!")
+    print(" All OpenDistillery prompting plugins registered successfully!")

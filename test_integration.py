@@ -11,7 +11,7 @@ import time
 def test_integration():
     """Test complete system integration"""
     
-    print("🚀 Starting OpenDistillery Integration Test")
+    print(" Starting OpenDistillery Integration Test")
     
     base_url = "http://localhost:8000"
     demo_key = "demo_key_12345"
@@ -24,7 +24,7 @@ def test_integration():
         assert response.status_code == 200
         health_data = response.json()
         print(f"   ✅ Health Status: {health_data['status']}")
-        print(f"   ⏱️  Uptime: {health_data['uptime_seconds']:.2f} seconds")
+        print(f"   ⏱  Uptime: {health_data['uptime_seconds']:.2f} seconds")
     except Exception as e:
         print(f"   ❌ Health check failed: {e}")
         return False
@@ -106,13 +106,13 @@ def test_integration():
         assert response.status_code == 200
         task_result = response.json()
         print(f"   ✅ Processed task: {task_result['task_id']}")
-        print(f"   ⏱️  Processing time: {task_result['processing_time']:.3f}s")
-        print(f"   🎯 Confidence: {task_result['confidence']}")
+        print(f"   ⏱  Processing time: {task_result['processing_time']:.3f}s")
+        print(f"    Confidence: {task_result['confidence']}")
     except Exception as e:
         print(f"   ❌ Task processing failed: {e}")
         return False
     
-    print("\n🎉 All integration tests passed!")
+    print("\n All integration tests passed!")
     return True
 
 if __name__ == "__main__":
@@ -120,7 +120,7 @@ if __name__ == "__main__":
         success = test_integration()
         exit(0 if success else 1)
     except KeyboardInterrupt:
-        print("\n⚠️  Test interrupted by user")
+        print("\n⚠  Test interrupted by user")
         exit(1)
     except Exception as e:
         print(f"\n💥 Unexpected error: {e}")

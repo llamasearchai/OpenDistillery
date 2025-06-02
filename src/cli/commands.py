@@ -48,7 +48,7 @@ async def _standard_chat(query):
     if result["type"] == "text":
         console.print(result["response"], style="ai")
     elif result["type"] == "function_calls":
-        console.print("🔧 Function calls executed:", style="warning")
+        console.print(" Function calls executed:", style="warning")
         for tool_result in result["tool_results"]:
             console.print(f"  {tool_result['function']}: {tool_result['result']}")
 

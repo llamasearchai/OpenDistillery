@@ -421,7 +421,7 @@ All notable changes to this project will be documented in this file.
         """Generate release notes"""
         return f"""# OpenDistillery {version}
 
-## 🚀 What's New
+##  What's New
 
 ### Grok API Integration
 - **Complete xAI/Grok support** with all latest models (Grok 3, Grok 3 Beta, Grok 2, Grok 1.5 Vision)
@@ -453,7 +453,7 @@ All notable changes to this project will be documented in this file.
 pip install opendistillery=={version}
 ```
 
-## 🔧 Quick Start
+##  Quick Start
 
 ```python
 from opendistillery.integrations import GrokAPIClient, GrokModel
@@ -482,7 +482,7 @@ async with GrokAPIClient() as client:
     
     def publish(self, version: Optional[str] = None, bump_type: Optional[str] = None) -> bool:
         """Main publish workflow"""
-        logger.info("🚀 Starting OpenDistillery publishing workflow")
+        logger.info(" Starting OpenDistillery publishing workflow")
         
         # Determine version
         if version:

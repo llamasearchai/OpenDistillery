@@ -84,7 +84,7 @@ class EnterprisePluginRegistry:
             
             # Safety check
             if metadata.safety_rating < 0.7:
-                print(f"⚠️ Plugin {metadata.name} has low safety rating: {metadata.safety_rating}")
+                print(f"⚠ Plugin {metadata.name} has low safety rating: {metadata.safety_rating}")
                 return False
             
             # Instantiate plugin
@@ -133,7 +133,7 @@ class EnterprisePluginRegistry:
                         if hasattr(obj, 'METADATA'):
                             await self.register_plugin(obj, obj.METADATA)
                         else:
-                            print(f"⚠️ Plugin {name} missing metadata")
+                            print(f"⚠ Plugin {name} missing metadata")
                             
             except Exception as e:
                 print(f"❌ Error loading plugin from {plugin_file}: {e}")

@@ -24,7 +24,7 @@ console = Console()
 
 @click.group()
 def next_gen():
-    """🚀 Next-Generation Prompting CLI"""
+    """ Next-Generation Prompting CLI"""
     pass
 
 @next_gen.command()
@@ -36,15 +36,15 @@ def next_gen():
 @click.option('--model', '-m', help='Preferred model')
 @click.option('--visualize', '-v', is_flag=True, help='Show optimization visualization')
 def optimize(prompt, techniques, quality_target, time_budget, stream, model, visualize):
-    """🎯 Optimize prompt using next-gen techniques"""
+    """ Optimize prompt using next-gen techniques"""
     
     console.print(Panel.fit(
         f"[bold cyan]Next-Generation Prompt Optimization[/]\n\n"
-        f"🎯 Target Quality: {quality_target:.1%}\n"
-        f"⏱️  Time Budget: {time_budget}s\n"
+        f" Target Quality: {quality_target:.1%}\n"
+        f"⏱  Time Budget: {time_budget}s\n"
         f"🧠 Model: {model or 'Auto-selected'}\n"
         f"📡 Streaming: {'Enabled' if stream else 'Disabled'}",
-        title="🚀 Optimization Session",
+        title=" Optimization Session",
         border_style="cyan"
     ))
     
@@ -74,12 +74,12 @@ async def _stream_optimization(prompt, techniques, quality_target, time_budget, 
     progress_table.add_column("Quality", style="yellow")
     progress_table.add_column("Time", style="blue")
     
-    results_panel = Panel("Waiting for results...", title="📊 Results", border_style="green")
+    results_panel = Panel("Waiting for results...", title=" Results", border_style="green")
     
-    layout["header"] = Panel(f"🚀 Optimizing: {prompt[:50]}...", border_style="cyan")
+    layout["header"] = Panel(f" Optimizing: {prompt[:50]}...", border_style="cyan")
     layout["progress"] = progress_table
     layout["results"] = results_panel
-    layout["footer"] = Panel("⚡ Real-time optimization in progress...", border_style="yellow")
+    layout["footer"] = Panel(" Real-time optimization in progress...", border_style="yellow")
     
     optimization_data = {
         "techniques": [],
@@ -111,7 +111,7 @@ async def _stream_optimization(prompt, techniques, quality_target, time_budget, 
 [bold yellow]Techniques Completed:[/] {len(optimization_data["techniques"])}
 [bold cyan]Current Progress:[/] {len(optimization_data["techniques"]) * 10:.0f}%
             """
-            layout["results"] = Panel(results_content, title="📊 Live Results", border_style="green")
+            layout["results"] = Panel(results_content, title=" Live Results", border_style="green")
     
     # Simulate WebSocket connection (in production, connect to actual WebSocket)
     with Live(layout, refresh_per_second=4) as live:
@@ -150,7 +150,7 @@ async def _stream_optimization(prompt, techniques, quality_target, time_budget, 
             await asyncio.sleep(0.5)
         
         # Final update
-        layout["footer"] = Panel("🎉 Optimization complete! Press any key to continue...", border_style="green")
+        layout["footer"] = Panel(" Optimization complete! Press any key to continue...", border_style="green")
         await update_display()
         
         # Show final results
@@ -160,7 +160,7 @@ async def _stream_optimization(prompt, techniques, quality_target, time_budget, 
             f"Best Technique: {best_technique['name']}\n"
             f"Best Quality: {best_technique['quality']:.2%}\n"
             f"Total Time: {sum(t.get('time', 0) for t in optimization_data['techniques']):.1f}s",
-            title="🎯 Final Results",
+            title=" Final Results",
             border_style="green"
         ))
         
@@ -180,7 +180,7 @@ async def _batch_optimization(prompt, techniques, quality_target, time_budget, m
         transient=True
     ) as progress:
         
-        task = progress.add_task("🚀 Optimizing prompt...", total=100)
+        task = progress.add_task(" Optimizing prompt...", total=100)
         
         # Simulate optimization process
         techniques_list = list(techniques) if techniques else [
@@ -209,7 +209,7 @@ async def _batch_optimization(prompt, techniques, quality_target, time_budget, m
         progress.update(task, description="✅ Optimization complete!")
         
         # Display results
-        results_table = Table(title="🎯 Optimization Results")
+        results_table = Table(title=" Optimization Results")
         results_table.add_column("Technique", style="cyan")
         results_table.add_column("Quality Score", style="green")
         results_table.add_column("Processing Time", style="yellow")
@@ -245,7 +245,7 @@ async def _batch_optimization(prompt, techniques, quality_target, time_budget, m
 async def _show_optimization_visualization(optimization_data):
     """Show optimization visualization"""
     
-    console.print("\n[cyan]📊 Generating optimization visualization...[/]")
+    console.print("\n[cyan] Generating optimization visualization...[/]")
     
     # Create quality improvement chart
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
@@ -280,7 +280,7 @@ async def _show_optimization_visualization(optimization_data):
     buffer.seek(0)
     
     # In a real implementation, you'd display this or save to file
-    console.print("📈 Visualization saved! (In production: display chart here)")
+    console.print(" Visualization saved! (In production: display chart here)")
     plt.close()
 
 @next_gen.command()
@@ -295,7 +295,7 @@ def batch(file, output, parallel, max_workers):
         f"[bold cyan]Batch Processing Mode[/]\n\n"
         f"📁 Input File: {file}\n"
         f"📄 Output File: {output or 'results.json'}\n"
-        f"⚡ Parallel: {'Yes' if parallel else 'No'}\n"
+        f" Parallel: {'Yes' if parallel else 'No'}\n"
         f"👥 Max Workers: {max_workers if parallel else 1}",
         title="🔄 Batch Optimization",
         border_style="cyan"
@@ -310,7 +310,7 @@ async def _process_batch(file, output, parallel, max_workers):
     with open(file, 'r') as f:
         prompts = [line.strip() for line in f if line.strip()]
     
-    console.print(f"📊 Found {len(prompts)} prompts to process")
+    console.print(f" Found {len(prompts)} prompts to process")
     
     with Progress(
         SpinnerColumn(),
@@ -382,11 +382,11 @@ async def _process_batch(file, output, parallel, max_workers):
         
         console.print(Panel.fit(
             f"[bold green]✅ Batch Processing Complete[/]\n\n"
-            f"📊 Prompts Processed: {len(results)}\n"
-            f"📈 Average Quality: {avg_quality:.2%}\n"
-            f"⏱️  Total Time: {total_time:.1f}s\n"
+            f" Prompts Processed: {len(results)}\n"
+            f" Average Quality: {avg_quality:.2%}\n"
+            f"⏱  Total Time: {total_time:.1f}s\n"
             f"📁 Results saved to: {output_file}",
-            title="🎉 Batch Results",
+            title=" Batch Results",
             border_style="green"
         ))
 
@@ -395,14 +395,14 @@ async def _process_batch(file, output, parallel, max_workers):
 @click.option('--days', '-d', default=30, help='Days of data to analyze')
 @click.option('--export', '-e', help='Export analytics to file')
 def analytics(technique, days, export):
-    """📊 View detailed analytics and performance metrics"""
+    """ View detailed analytics and performance metrics"""
     
     console.print(Panel.fit(
         f"[bold cyan]Analytics Dashboard[/]\n\n"
-        f"🔍 Technique Filter: {technique or 'All'}\n"
+        f" Technique Filter: {technique or 'All'}\n"
         f"📅 Time Period: Last {days} days\n"
-        f"📊 Export: {export or 'Console only'}",
-        title="📊 Performance Analytics",
+        f" Export: {export or 'Console only'}",
+        title=" Performance Analytics",
         border_style="cyan"
     ))
     
@@ -435,17 +435,17 @@ async def _show_analytics(technique, days, export):
     }
     
     # Overview table
-    overview_table = Table(title="📊 Performance Overview")
+    overview_table = Table(title=" Performance Overview")
     overview_table.add_column("Metric", style="cyan")
     overview_table.add_column("Value", style="green")
     overview_table.add_column("Trend", style="yellow")
     
-    overview_table.add_row("Total Requests", f"{analytics_data['total_requests']:,}", "📈 +15%")
-    overview_table.add_row("Success Rate", f"{analytics_data['success_rate']:.1%}", "📈 +2%")
-    overview_table.add_row("Avg Quality Improvement", f"{analytics_data['average_quality_improvement']:.1%}", "📈 +5%")
+    overview_table.add_row("Total Requests", f"{analytics_data['total_requests']:,}", " +15%")
+    overview_table.add_row("Success Rate", f"{analytics_data['success_rate']:.1%}", " +2%")
+    overview_table.add_row("Avg Quality Improvement", f"{analytics_data['average_quality_improvement']:.1%}", " +5%")
     overview_table.add_row("Avg Processing Time", f"{analytics_data['average_processing_time']:.1f}s", "📉 -8%")
-    overview_table.add_row("Cost Savings", f"${analytics_data['cost_savings']:,.2f}", "📈 +12%")
-    overview_table.add_row("User Satisfaction", f"{analytics_data['user_satisfaction']:.1%}", "📈 +3%")
+    overview_table.add_row("Cost Savings", f"${analytics_data['cost_savings']:,.2f}", " +12%")
+    overview_table.add_row("User Satisfaction", f"{analytics_data['user_satisfaction']:.1%}", " +3%")
     
     console.print(overview_table)
     console.print()
@@ -458,7 +458,7 @@ async def _show_analytics(technique, days, export):
     technique_table.add_column("Efficiency", style="yellow")
     
     for tech in analytics_data["top_techniques"]:
-        efficiency = "🚀 High" if tech["avg_quality"] > 0.85 else "⚡ Medium" if tech["avg_quality"] > 0.80 else "🔧 Low"
+        efficiency = " High" if tech["avg_quality"] > 0.85 else " Medium" if tech["avg_quality"] > 0.80 else " Low"
         technique_table.add_row(
             tech["name"],
             f"{tech['usage']:.1%}",
@@ -470,7 +470,7 @@ async def _show_analytics(technique, days, export):
     console.print()
     
     # Quality distribution
-    quality_tree = Tree("📈 Quality Distribution")
+    quality_tree = Tree(" Quality Distribution")
     for quality_level, percentage in analytics_data["quality_distribution"].items():
         quality_tree.add(f"{quality_level.title()}: {percentage:.1%}")
     
@@ -492,7 +492,7 @@ def monitor(host, port, interval):
         f"[bold cyan]Real-time System Monitor[/]\n\n"
         f"🌐 Endpoint: http://{host}:{port}\n"
         f"🔄 Refresh: Every {interval}s\n"
-        f"📊 Monitoring: System health, performance, usage",
+        f" Monitoring: System health, performance, usage",
         title="📡 Live Monitor",
         border_style="cyan"
     ))
@@ -547,7 +547,7 @@ async def _real_time_monitor(host, port, interval):
         throughput = np.random.uniform(800, 1200)
         error_rate = np.random.uniform(0.1, 2.0)
         
-        perf_table = Table(title="⚡ Performance Metrics")
+        perf_table = Table(title=" Performance Metrics")
         perf_table.add_column("Metric", style="cyan")
         perf_table.add_column("Current", style="green")
         perf_table.add_column("Target", style="blue")
@@ -562,21 +562,21 @@ async def _real_time_monitor(host, port, interval):
     def create_usage_stats():
         """Create usage statistics panel"""
         usage_content = f"""
-[bold green]📊 Current Usage[/]
+[bold green] Current Usage[/]
 
-🔥 Active Optimizations: 12
+ Active Optimizations: 12
 ⏳ Queue Length: 3
 👥 Active Users: 47
-📈 Requests Today: 1,247
+ Requests Today: 1,247
 🧠 Top Technique: metacognitive
-⭐ Avg Quality Score: 87.3%
+ Avg Quality Score: 87.3%
         """
-        return Panel(usage_content, title="📊 Usage Statistics", border_style="blue")
+        return Panel(usage_content, title=" Usage Statistics", border_style="blue")
     
     def create_alerts():
         """Create alerts panel"""
         alerts_content = f"""
-[bold yellow]⚠️  Active Alerts[/]
+[bold yellow]⚠  Active Alerts[/]
 
 🟡 High CPU usage on node-2
 🟢 All models operational
@@ -588,7 +588,7 @@ async def _real_time_monitor(host, port, interval):
         return Panel(alerts_content, title="🚨 System Alerts", border_style="yellow")
     
     # Initial layout setup
-    layout["header"] = Panel(f"🖥️  OpenDistillery System Monitor - {host}:{port}", border_style="cyan")
+    layout["header"] = Panel(f"🖥  OpenDistillery System Monitor - {host}:{port}", border_style="cyan")
     layout["footer"] = Panel(f"🔄 Auto-refresh every {interval}s | Press Ctrl+C to exit", border_style="green")
     
     with Live(layout, refresh_per_second=1) as live:
@@ -610,13 +610,13 @@ async def _real_time_monitor(host, port, interval):
 @click.option('--config', '-c', help='Configuration file path')
 @click.option('--validate-only', '-v', is_flag=True, help='Only validate configuration')
 def configure(config, validate_only):
-    """⚙️ Configure system settings and preferences"""
+    """⚙ Configure system settings and preferences"""
     
     console.print(Panel.fit(
         f"[bold cyan]System Configuration[/]\n\n"
         f"📁 Config File: {config or 'Default settings'}\n"
         f"✅ Validate Only: {'Yes' if validate_only else 'No'}",
-        title="⚙️ Configuration Manager",
+        title="⚙ Configuration Manager",
         border_style="cyan"
     ))
     
@@ -663,7 +663,7 @@ def _load_and_validate_config(config_path, validate_only):
 def _interactive_configuration():
     """Interactive configuration setup"""
     
-    console.print("🛠️  Interactive Configuration Setup\n")
+    console.print("🛠  Interactive Configuration Setup\n")
     
     # API Configuration
     api_host = click.prompt("🌐 API Host", default="localhost")
@@ -683,12 +683,12 @@ def _interactive_configuration():
             selected_techniques.append(technique)
     
     # Quality Targets
-    default_quality = click.prompt("🎯 Default Quality Target", default=0.90, type=float)
-    max_time_budget = click.prompt("⏱️  Max Time Budget (seconds)", default=60, type=int)
+    default_quality = click.prompt(" Default Quality Target", default=0.90, type=float)
+    max_time_budget = click.prompt("⏱  Max Time Budget (seconds)", default=60, type=int)
     
     # Security Settings
-    enable_rate_limiting = click.confirm("🛡️  Enable Rate Limiting?", default=True)
-    max_requests_per_minute = click.prompt("📊 Max Requests per Minute", default=100, type=int) if enable_rate_limiting else None
+    enable_rate_limiting = click.confirm("  Enable Rate Limiting?", default=True)
+    max_requests_per_minute = click.prompt(" Max Requests per Minute", default=100, type=int) if enable_rate_limiting else None
     
     # Build configuration
     config = {
@@ -725,10 +725,10 @@ def _interactive_configuration():
         f"[bold green]Configuration Complete![/]\n\n"
         f"🌐 API Endpoint: {api_host}:{api_port}\n"
         f"🧠 Default Techniques: {len(selected_techniques)}\n"
-        f"🎯 Quality Target: {default_quality:.1%}\n"
-        f"⏱️  Time Budget: {max_time_budget}s\n"
-        f"🛡️  Security: {'Enabled' if enable_rate_limiting else 'Basic'}",
-        title="🎉 Setup Complete",
+        f" Quality Target: {default_quality:.1%}\n"
+        f"⏱  Time Budget: {max_time_budget}s\n"
+        f"  Security: {'Enabled' if enable_rate_limiting else 'Basic'}",
+        title=" Setup Complete",
         border_style="green"
     ))
 

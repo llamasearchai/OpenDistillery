@@ -79,7 +79,7 @@ class CompoundAIBenchmarkSuite:
     
     async def run_comprehensive_benchmarks(self) -> Dict[str, Any]:
         """Run the complete benchmark suite"""
-        print("🚀 Starting OpenContext Comprehensive Benchmark Suite")
+        print(" Starting OpenContext Comprehensive Benchmark Suite")
         
         start_time = time.time()
         
@@ -103,7 +103,7 @@ class CompoundAIBenchmarkSuite:
     
     async def run_performance_benchmarks(self) -> Dict[str, Any]:
         """Run performance-focused benchmarks"""
-        print("📊 Running Performance Benchmarks...")
+        print(" Running Performance Benchmarks...")
         
         results = {}
         
@@ -136,7 +136,7 @@ class CompoundAIBenchmarkSuite:
     
     async def run_accuracy_benchmarks(self) -> Dict[str, Any]:
         """Run accuracy-focused benchmarks"""
-        print("🎯 Running Accuracy Benchmarks...")
+        print(" Running Accuracy Benchmarks...")
         
         results = {}
         
@@ -168,7 +168,7 @@ class CompoundAIBenchmarkSuite:
     
     async def run_scalability_benchmarks(self) -> Dict[str, Any]:
         """Run scalability benchmarks"""
-        print("📈 Running Scalability Benchmarks...")
+        print(" Running Scalability Benchmarks...")
         
         results = {}
         

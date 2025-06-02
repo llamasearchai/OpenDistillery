@@ -18,13 +18,13 @@ OpenDistillery provides comprehensive integration with xAI's Grok models, offeri
 - Live search and fact-checking capabilities
 - Current events and trending topics
 
-### 👁️ **Vision & Multimodal**
+### 👁 **Vision & Multimodal**
 - Image analysis and description
 - Visual question answering
 - Document and chart analysis
 - Multimodal reasoning
 
-### ⚡ **Advanced Features**
+###  **Advanced Features**
 - Function calling with automatic execution
 - Streaming responses for real-time interaction
 - Advanced rate limiting with burst handling

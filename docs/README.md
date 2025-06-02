@@ -1,4 +1,4 @@
-# 🚀 OpenDistillery: Next-Generation AI Prompting Platform
+#  OpenDistillery: Next-Generation AI Prompting Platform
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/opendistillery/core)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -7,7 +7,7 @@
 
 OpenDistillery is the world's most advanced AI prompting platform, featuring cutting-edge techniques from quantum-inspired optimization to neuro-symbolic reasoning. Built for enterprises that demand the highest quality AI interactions.
 
-## 🌟 Features
+##  Features
 
 ### 🔬 Advanced Prompting Techniques
 - **Quantum Prompt Superposition**: Quantum-inspired optimization using superposition states
@@ -18,20 +18,20 @@ OpenDistillery is the world's most advanced AI prompting platform, featuring cut
 - **Multi-Modal Chain of Thought**: Reasoning across text, images, audio, and structured data
 - **Tree of Thoughts**: Systematic exploration of reasoning processes
 
-### 🚀 Enterprise-Grade Infrastructure
+###  Enterprise-Grade Infrastructure
 - **Unified Model Hub**: Seamless integration with 20+ leading AI models
 - **Intelligent Routing**: Automatic model selection based on task requirements
 - **Real-time Monitoring**: Advanced analytics and performance tracking
 - **Auto-scaling**: Elastic infrastructure that scales with demand
 - **Security**: Enterprise-grade security with API key management and rate limiting
 
-### 📊 Advanced Analytics
+###  Advanced Analytics
 - **Quality Prediction**: ML-powered quality forecasting
 - **Performance Optimization**: Continuous improvement through data-driven insights
 - **Cost Optimization**: Intelligent resource allocation and cost reduction
 - **Custom Dashboards**: Real-time monitoring with Grafana integration
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Installation
 

@@ -73,7 +73,7 @@ class FinancialServicesDemo:
         
         # Run all demo scenarios
         for scenario_name, setup_func in self.demo_scenarios.items():
-            print(f"\n📊 Running {scenario_name.replace('_', ' ').title()} Demo...")
+            print(f"\n Running {scenario_name.replace('_', ' ').title()} Demo...")
             
             scenario_config = setup_func()
             result = await self._execute_scenario(scenario_name, scenario_config)
@@ -89,7 +89,7 @@ class FinancialServicesDemo:
         
         print(f"\n✅ Financial Services Demo completed in {total_duration:.2f} seconds")
         print(f"💰 Projected Annual ROI: ${executive_summary['total_roi_millions']:.1f}M")
-        print(f"📈 Risk Reduction: {executive_summary['risk_reduction_percent']:.1f}%")
+        print(f" Risk Reduction: {executive_summary['risk_reduction_percent']:.1f}%")
         
         return {
             "executive_summary": executive_summary,
@@ -871,7 +871,7 @@ if __name__ == "__main__":
         print("\n" + "="*80)
         print("FINANCIAL SERVICES DEMONSTRATION COMPLETE")
         print("="*80)
-        print(f"📊 Executive Summary:")
+        print(f" Executive Summary:")
         print(f"   Total Annual ROI: ${results['executive_summary']['total_roi_millions']:.1f}M")
         print(f"   Implementation Cost: ${results['executive_summary']['total_implementation_cost_millions']:.1f}M")
         print(f"   Payback Period: {results['executive_summary']['average_payback_months']:.1f} months")

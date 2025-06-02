@@ -56,12 +56,12 @@ async def _run_meta_optimization(prompt, task, generations):
     # Display results
     console.print(Panel.fit(
         f"[bold green]{result['optimized_prompt']}[/]",
-        title=f"🎯 Optimized Prompt (Score: {result['performance_score']:.2%})",
+        title=f" Optimized Prompt (Score: {result['performance_score']:.2%})",
         border_style="green"
     ))
     
     # Show optimization history
-    history_table = Table(title="📈 Optimization History")
+    history_table = Table(title=" Optimization History")
     history_table.add_column("Generation", style="cyan")
     history_table.add_column("Score", style="green")
     history_table.add_column("Safety", style="yellow")
@@ -79,12 +79,12 @@ async def _run_meta_optimization(prompt, task, generations):
 @click.option('--prompt', '-p', prompt='Prompt to evaluate', help='Prompt text for safety evaluation')
 @click.option('--revise', is_flag=True, help='Automatically revise unsafe prompts')
 def safety_check(prompt, revise):
-    """⚖️ Constitutional AI safety evaluation"""
+    """⚖ Constitutional AI safety evaluation"""
     
     console.print(Panel.fit(
         f"[bold yellow]Constitutional AI Safety Check[/]\n\n"
         f"Evaluating: {prompt[:100]}...",
-        title="🛡️ Safety Analysis",
+        title=" Safety Analysis",
         border_style="yellow"
     ))
     
@@ -100,7 +100,7 @@ async def _run_safety_evaluation(prompt, revise):
     # Display safety results
     if safety_report["flagged"]:
         console.print(Panel.fit(
-            f"[bold red]⚠️ SAFETY VIOLATIONS DETECTED[/]\n\n"
+            f"[bold red]⚠ SAFETY VIOLATIONS DETECTED[/]\n\n"
             f"Overall Safety Score: {safety_report['safety_score']:.2%}\n"
             f"Flagged Categories: {', '.join([cat for cat, flagged in safety_report['categories'].items() if flagged])}",
             title="🚨 Safety Alert",
@@ -121,12 +121,12 @@ async def _run_safety_evaluation(prompt, revise):
             f"[bold green]✅ PROMPT PASSES SAFETY CHECKS[/]\n\n"
             f"Safety Score: {safety_report['safety_score']:.2%}\n"
             f"No violations detected",
-            title="🛡️ Safety Approved",
+            title=" Safety Approved",
             border_style="green"
         ))
     
     # Detailed safety breakdown
-    safety_table = Table(title="🔍 Detailed Safety Analysis")
+    safety_table = Table(title=" Detailed Safety Analysis")
     safety_table.add_column("Rule", style="cyan")
     safety_table.add_column("Category", style="blue")
     safety_table.add_column("Score", style="yellow")
@@ -148,14 +148,14 @@ async def _run_safety_evaluation(prompt, revise):
 @click.option('--iterations', '-i', default=20, help='Optimization iterations')
 @click.option('--beam-width', '-b', default=3, help='Beam search width')
 def gradient_optimize(prompt, iterations, beam_width):
-    """📈 Gradient-based prompt optimization"""
+    """ Gradient-based prompt optimization"""
     
     console.print(Panel.fit(
         f"[bold magenta]Gradient-based Prompt Search[/]\n\n"
         f"Initial Prompt: {prompt}\n"
         f"Iterations: {iterations}\n"
         f"Beam Width: {beam_width}",
-        title="🎯 Gradient Optimization",
+        title=" Gradient Optimization",
         border_style="magenta"
     ))
     
@@ -176,14 +176,14 @@ async def _run_gradient_optimization(prompt, iterations, beam_width):
     
     console.print(Panel.fit(
         f"[bold green]{result['optimized_prompt']}[/]",
-        title=f"🎯 Gradient-Optimized Prompt (Score: {result['final_score']:.3f})",
+        title=f" Gradient-Optimized Prompt (Score: {result['final_score']:.3f})",
         border_style="green"
     ))
     
-    console.print(f"[blue]📊 {result['convergence_plot']}[/]")
+    console.print(f"[blue] {result['convergence_plot']}[/]")
     
     # Show optimization trajectory
-    trajectory_table = Table(title="📈 Optimization Trajectory")
+    trajectory_table = Table(title=" Optimization Trajectory")
     trajectory_table.add_column("Iteration", style="cyan")
     trajectory_table.add_column("Best Score", style="green")
     trajectory_table.add_column("Gradient Norm", style="yellow")
@@ -205,7 +205,7 @@ def analyze(prompt):
     console.print(Panel.fit(
         f"[bold blue]Multi-Dimensional Prompt Analysis[/]\n\n"
         f"Analyzing: {prompt[:100]}...",
-        title="🔍 Analysis Suite",
+        title=" Analysis Suite",
         border_style="blue"
     ))
     
@@ -231,13 +231,13 @@ async def _run_comprehensive_analysis(prompt):
     effectiveness_score = await example_objective_function(prompt)
     
     # Create comprehensive report
-    analysis_table = Table(title="📊 Comprehensive Analysis Report")
+    analysis_table = Table(title=" Comprehensive Analysis Report")
     analysis_table.add_column("Metric", style="cyan")
     analysis_table.add_column("Score", style="green")
     analysis_table.add_column("Assessment", style="yellow")
     
     # Safety
-    safety_assessment = "✅ Safe" if not safety_report["flagged"] else "⚠️ Concerns"
+    safety_assessment = "✅ Safe" if not safety_report["flagged"] else "⚠ Concerns"
     analysis_table.add_row(
         "Safety Score",
         f"{safety_report['safety_score']:.2%}",
@@ -245,7 +245,7 @@ async def _run_comprehensive_analysis(prompt):
     )
     
     # Complexity
-    complexity_assessment = "📈 High" if complexity_score > 0.7 else "📉 Medium" if complexity_score > 0.4 else "📊 Low"
+    complexity_assessment = " High" if complexity_score > 0.7 else "📉 Medium" if complexity_score > 0.4 else " Low"
     analysis_table.add_row(
         "Complexity",
         f"{complexity_score:.2%}",
@@ -253,7 +253,7 @@ async def _run_comprehensive_analysis(prompt):
     )
     
     # Effectiveness
-    effectiveness_assessment = "🎯 Excellent" if effectiveness_score > 0.8 else "👍 Good" if effectiveness_score > 0.6 else "⚡ Needs work"
+    effectiveness_assessment = " Excellent" if effectiveness_score > 0.8 else "👍 Good" if effectiveness_score > 0.6 else " Needs work"
     analysis_table.add_row(
         "Effectiveness",
         f"{effectiveness_score:.2%}",
@@ -262,7 +262,7 @@ async def _run_comprehensive_analysis(prompt):
     
     # Token efficiency
     token_efficiency = len(prompt.split()) / max(len(prompt), 1) * 100
-    efficiency_assessment = "💎 Efficient" if token_efficiency > 0.15 else "🔧 Verbose"
+    efficiency_assessment = "💎 Efficient" if token_efficiency > 0.15 else " Verbose"
     analysis_table.add_row(
         "Token Efficiency",
         f"{token_efficiency:.1f}%",
@@ -278,7 +278,7 @@ async def _run_comprehensive_analysis(prompt):
     
     console.print(Panel.fit(
         "\n".join(f"• {rec}" for rec in recommendations),
-        title="💡 Optimization Recommendations",
+        title=" Optimization Recommendations",
         border_style="cyan"
     ))
 
@@ -300,23 +300,23 @@ def _generate_recommendations(safety_report, complexity_score, effectiveness_sco
     recommendations = []
     
     if safety_report["flagged"]:
-        recommendations.append("🛡️ Address safety concerns before deployment")
+        recommendations.append(" Address safety concerns before deployment")
     
     if complexity_score < 0.3:
-        recommendations.append("📈 Consider adding more specific instructions")
+        recommendations.append(" Consider adding more specific instructions")
     elif complexity_score > 0.8:
         recommendations.append("📉 Simplify prompt structure for better clarity")
     
     if effectiveness_score < 0.6:
-        recommendations.append("🎯 Add examples or step-by-step guidance")
+        recommendations.append(" Add examples or step-by-step guidance")
     
     if token_efficiency < 0.1:
-        recommendations.append("✂️ Remove redundant words to improve efficiency")
+        recommendations.append("✂ Remove redundant words to improve efficiency")
     elif token_efficiency > 0.2:
         recommendations.append("📝 Consider expanding with more context")
     
     if not recommendations:
-        recommendations.append("✨ Prompt is well-optimized across all metrics!")
+        recommendations.append(" Prompt is well-optimized across all metrics!")
     
     return recommendations
 
@@ -402,7 +402,7 @@ async def _run_benchmark_suite():
     console.print(benchmark_table)
     
     # Calculate averages
-    avg_table = Table(title="📊 Average Performance")
+    avg_table = Table(title=" Average Performance")
     avg_table.add_column("Technique", style="cyan")
     avg_table.add_column("Average Score", style="green")
     avg_table.add_column("Ranking", style="yellow")
@@ -471,7 +471,7 @@ class ConstitutionalAIPlugin(PromptingPlugin):
     """OpenAI's Constitutional AI constraints"""
     @property
     def name(self):
-        return "⚖️ ConstitutionalAI-v1"
+        return "⚖ ConstitutionalAI-v1"
     
     async def process(self, request):
         # Add ethical and safety layers per Anthropic's research
@@ -481,7 +481,7 @@ class MultimodalCoTPlugin(PromptingPlugin):
     """Vision+Language Chain-of-Thought"""
     @property
     def name(self):
-        return "👁️ Multimodal-CoT"
+        return "👁 Multimodal-CoT"
     
     async def process(self, request):
         # Implementation from "Language Is Not All You Need" (Microsoft)
@@ -491,7 +491,7 @@ class GradientPromptSearch(PromptingPlugin):
     """Differentiable prompt optimization"""
     @property
     def name(self):
-        return "📈 DiffPrompt-v2"
+        return " DiffPrompt-v2"
     
     async def process(self, request):
         # Simulated gradient-based search (see "Promptbreeder" research)
