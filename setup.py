@@ -16,7 +16,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="opendistillery",
-    version="2.0.2",
+    version="2.0.3",
     author="Nik Jois",
     author_email="nikjois@llamasearch.ai",
     description="Advanced Compound AI Systems for Enterprise Workflow Transformation",

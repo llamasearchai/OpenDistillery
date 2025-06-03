@@ -69,7 +69,7 @@ OpenDistillery is a production-ready, enterprise-grade compound AI system design
 
 ### Key Features
 
-- **Latest AI Models (2025)**: Support for GPT-4.1, Claude 4 Opus, Grok 3, and o-series reasoning models
+- **Latest AI Models**: Support for GPT-4 Turbo, Claude-3.5 Sonnet, Grok-2, and o1-series reasoning models
 - **Multi-Agent Orchestration**: Advanced coordination between specialized AI agents
 - **Enterprise Security**: SOC2, ISO27001, GDPR, HIPAA compliance ready
 - **Production Infrastructure**: Docker, Kubernetes, monitoring, and auto-scaling
@@ -119,18 +119,18 @@ from opendistillery import get_completion, get_reasoning_completion
 
 # Simple completion with latest models
 async def main():
-    # Use GPT-4.1 with 1M token context
+    # Use GPT-4 Turbo with large context window
     response = await get_completion(
         "Analyze the quarterly financial performance trends",
-        model="gpt-4.1",
+        model="gpt-4-turbo",
         temperature=0.1
     )
     print(response)
     
-    # Advanced reasoning with o3
+    # Advanced reasoning with o1-preview
     reasoning_response = await get_reasoning_completion(
         "Solve this complex mathematical proof step by step",
-        model="o3"
+        model="o1-preview"
     )
     print(reasoning_response)
 
