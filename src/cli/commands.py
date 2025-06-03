@@ -20,10 +20,10 @@ def chat(query, stream):
     """Interactive AI chat with OpenDistillery"""
     
     if stream:
-        console.print(Panel.fit("🤖 AI Response (Streaming):", border_style="cyan"))
+        console.print(Panel.fit("AI Response (Streaming):", border_style="cyan"))
         asyncio.run(_stream_chat(query))
     else:
-        console.print(Panel.fit("🤖 AI Response:", border_style="cyan"))
+        console.print(Panel.fit("AI Response:", border_style="cyan"))
         asyncio.run(_standard_chat(query))
 
 async def _stream_chat(query):
@@ -82,7 +82,7 @@ def research(problem, technique):
     """Execute advanced research techniques"""
     
     console.print(Panel.fit(
-        f"🔬 Analyzing: {problem}\n🧠 Using: {technique}",
+                    f"Analyzing: {problem}\nUsing: {technique}",
         title="Research Analysis",
         border_style="magenta"
     ))

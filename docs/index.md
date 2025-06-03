@@ -19,43 +19,43 @@
 
 ## Table of Contents
 
-### 🚀 Getting Started
+### Getting Started
 - [Quick Start Guide](README.md)
 - [Installation](installation.md)
 - [Basic Usage Examples](examples.md)
 - [Configuration](configuration.md)
 
-### 🏗️ Core Features
+### Core Features
 - [Multi-Agent Orchestration](multi-agent.md)
 - [Compound AI Systems](compound-ai.md)
 - [Model Integration](model-integration.md)
 - [Advanced Reasoning](reasoning.md)
 
-### 🔒 Enterprise Features  
+### Enterprise Features  
 - [Security & Authentication](security.md)
 - [Monitoring & Observability](monitoring.md)
 - [Production Deployment](deployment.md)
 - [API Reference](api-reference.md)
 
-### 🌐 Integration Guides
+### Integration Guides
 - [OpenAI Integration](integrations/openai.md)
 - [Anthropic Claude](integrations/anthropic.md)
 - [xAI Grok Integration](grok_integration.md)
 - [Custom Model Integration](integrations/custom.md)
 
-### 📈 Advanced Topics
+### Advanced Topics
 - [Performance Optimization](performance.md)
 - [Scaling & Load Balancing](scaling.md)
 - [Custom Agent Development](custom-agents.md)
 - [Workflow Automation](workflows.md)
 
-### 🛠️ Development
+### Development
 - [Contributing Guidelines](contributing.md)
 - [Development Setup](development.md)
 - [Testing](testing.md)
 - [Architecture Overview](architecture.md)
 
-### 💼 Enterprise Solutions
+### Enterprise Solutions
 - [Enterprise Features](enterprise.md)
 - [Professional Services](services.md)
 - [Support & SLA](support.md)

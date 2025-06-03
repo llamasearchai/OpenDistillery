@@ -45,7 +45,7 @@ class AdvancedMonitoringDashboard:
             self.render_kpi_card("Total Requests", "1,247", "", "15.3%")
         
         with col2:
-            self.render_kpi_card("Success Rate", "98.7%", "✅", "2.1%")
+            self.render_kpi_card("Success Rate", "98.7%", "CHECK", "2.1%")
         
         with col3:
             self.render_kpi_card("Avg Latency", "156ms", "", "-8.4%")
@@ -56,10 +56,10 @@ class AdvancedMonitoringDashboard:
         # Main content areas
         tab1, tab2, tab3, tab4, tab5 = st.tabs([
             " Real-time Metrics", 
-            "🧠 Technique Performance", 
+            "Technique Performance", 
             " Quality Analytics", 
             "⚠ System Health",
-            "🤖 AI Insights"
+            "AI Insights"
         ])
         
         with tab1:
