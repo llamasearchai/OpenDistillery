@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="OpenDistillery.png" alt="OpenDistillery Logo" width="300"/>
+</div>
+
 # OpenDistillery - GitHub Repository Description
 
 ## Short Description

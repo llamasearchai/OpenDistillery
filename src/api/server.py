@@ -120,6 +120,21 @@ class TaskResponse(BaseModel):
     confidence: Optional[float] = None
     models_used: Optional[List[str]] = None
 
+class OptimizationRequest(BaseModel):
+    target: str = Field(..., description="Optimization target")
+    constraints: Dict[str, Any] = Field(default_factory=dict)
+    parameters: Dict[str, Any] = Field(default_factory=dict)
+
+class QueryRequest(BaseModel):
+    query: str = Field(..., description="Query string")
+    context: Dict[str, Any] = Field(default_factory=dict)
+    filters: Dict[str, Any] = Field(default_factory=dict)
+
+class TrainingRequest(BaseModel):
+    model_type: str = Field(..., description="Type of model to train")
+    training_data: Dict[str, Any] = Field(..., description="Training data")
+    parameters: Dict[str, Any] = Field(default_factory=dict)
+
 # Authentication
 async def get_current_user(credentials: HTTPAuthorizationCredentials = Security(security)):
     """Validate API key and return user info"""
@@ -416,21 +431,7 @@ async def list_models_endpoint(current_user: str = Depends(get_current_user)):
 async def health_check(current_user: str = Depends(get_current_user)):
     return {"status": "healthy"}
 
-# Define missing request models
-class OptimizationRequest(BaseModel):
-    target: str = Field(..., description="Optimization target")
-    constraints: Dict[str, Any] = Field(default_factory=dict)
-    parameters: Dict[str, Any] = Field(default_factory=dict)
-
-class QueryRequest(BaseModel):
-    query: str = Field(..., description="Query string")
-    context: Dict[str, Any] = Field(default_factory=dict)
-    filters: Dict[str, Any] = Field(default_factory=dict)
-
-class TrainingRequest(BaseModel):
-    model_type: str = Field(..., description="Type of model to train")
-    training_data: Dict[str, Any] = Field(..., description="Training data")
-    parameters: Dict[str, Any] = Field(default_factory=dict)
+# Handler functions now that models are defined above
 
 # Define handler functions
 async def handle_optimization(request: OptimizationRequest) -> Dict[str, Any]:

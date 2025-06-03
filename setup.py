@@ -16,7 +16,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="opendistillery",
-    version="1.0.0",
+    version="2.0.1",
     author="Nik Jois",
     author_email="nikjois@llamasearch.ai",
     description="Advanced Compound AI Systems for Enterprise Workflow Transformation",
@@ -78,6 +78,11 @@ setup(
             "config/*.yaml",
             "templates/*.json",
             "schemas/*.json",
+        ],
+        "": [
+            "OpenDistillery.png",
+            "OpenDistillery.svg",
+            "*.md",
         ],
     },
     project_urls={

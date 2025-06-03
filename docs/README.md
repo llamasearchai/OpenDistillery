@@ -1,9 +1,17 @@
-#  OpenDistillery: Next-Generation AI Prompting Platform
+<div align="center">
+  <img src="../OpenDistillery.png" alt="OpenDistillery Logo" width="300"/>
+  
+  #  OpenDistillery: Next-Generation AI Prompting Platform
+</div>
+
+<div align="center">
 
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/opendistillery/core)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-red.svg)](https://fastapi.tiangolo.com)
+
+</div>
 
 OpenDistillery is the world's most advanced AI prompting platform, featuring cutting-edge techniques from quantum-inspired optimization to neuro-symbolic reasoning. Built for enterprises that demand the highest quality AI interactions.
 

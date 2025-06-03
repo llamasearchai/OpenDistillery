@@ -124,6 +124,17 @@ MODEL_SPECS = {
         knowledge_cutoff="2025-01",
         special_features=["advanced_reasoning", "deliberative_alignment", "chain_of_thought"]
     ),
+    OpenAIModel.O4_MINI.value: ModelSpec(
+        name="GPT-o4-mini",
+        provider=AIProvider.OPENAI,
+        context_window=128000,
+        max_output_tokens=32000,
+        supports_reasoning=True,
+        cost_per_million_input=10.0,
+        cost_per_million_output=40.0,
+        knowledge_cutoff="2025-01",
+        special_features=["advanced_reasoning", "compact_model", "fast_inference"]
+    ),
     OpenAIModel.GPT_4O.value: ModelSpec(
         name="GPT-4o",
         provider=AIProvider.OPENAI,
