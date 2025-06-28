@@ -724,7 +724,6 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete list of changes and version hist
 **OpenDistillery** - Advancing Enterprise AI with Cutting-Edge Technology
 
 **Author**: Nik Jois (nikjois@llamasearch.ai)  
-**Website**: [https://opendistillery.ai](https://opendistillery.ai)  
 **GitHub**: [https://github.com/nikjois/OpenDistillery](https://github.com/nikjois/OpenDistillery)
 
 Copyright © 2024-2025 OpenDistillery. All rights reserved.
