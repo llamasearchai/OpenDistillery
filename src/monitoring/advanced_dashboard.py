@@ -51,14 +51,14 @@ class AdvancedMonitoringDashboard:
             self.render_kpi_card("Avg Latency", "156ms", "", "-8.4%")
         
         with col4:
-            self.render_kpi_card("Cost Savings", "$1,250", "💰", "12.7%")
+            self.render_kpi_card("Cost Savings", "$1,250", "SAVINGS", "12.7%")
         
         # Main content areas
         tab1, tab2, tab3, tab4, tab5 = st.tabs([
             " Real-time Metrics", 
             "Technique Performance", 
             " Quality Analytics", 
-            "⚠ System Health",
+            "System Health",
             "AI Insights"
         ])
         
@@ -84,12 +84,12 @@ class AdvancedMonitoringDashboard:
         
         # Time range selector
         time_range = st.sidebar.selectbox(
-            "📅 Time Range",
+            "Time Range",
             ["Last Hour", "Last 6 Hours", "Last 24 Hours", "Last 7 Days", "Last 30 Days"]
         )
         
         # Auto-refresh toggle
-        auto_refresh = st.sidebar.checkbox("🔄 Auto Refresh", value=True)
+        auto_refresh = st.sidebar.checkbox("Auto Refresh", value=True)
         
         if auto_refresh:
             refresh_interval = st.sidebar.slider("Refresh Interval (seconds)", 1, 60, 5)
@@ -111,12 +111,12 @@ class AdvancedMonitoringDashboard:
         )
         
         # Alert settings
-        st.sidebar.subheader("🚨 Alert Thresholds")
+        st.sidebar.subheader("Alert Thresholds")
         latency_threshold = st.sidebar.slider("Max Latency (ms)", 100, 1000, 300)
         error_rate_threshold = st.sidebar.slider("Max Error Rate (%)", 0.1, 10.0, 2.0)
         
         # Export options
-        st.sidebar.subheader("📤 Export")
+        st.sidebar.subheader("Export")
         if st.sidebar.button("Export Dashboard Data"):
             self.export_dashboard_data()
     
@@ -124,7 +124,7 @@ class AdvancedMonitoringDashboard:
         """Render KPI card"""
         
         change_color = "green" if change.startswith("+") or not change.startswith("-") else "red"
-        change_icon = "" if change.startswith("+") else "📉" if change.startswith("-") else "➡"
+        change_icon = "UP" if change.startswith("+") else "DOWN" if change.startswith("-") else "FLAT"
         
         st.markdown(f"""
         <div style="

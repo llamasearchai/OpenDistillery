@@ -58,7 +58,7 @@ async def _standard_chat(query):
 def shell(command):
     """Convert natural language to shell commands"""
     
-    console.print(Panel.fit(f"🐚 Converting: {command}", border_style="yellow"))
+    console.print(Panel.fit(f"Converting: {command}", border_style="yellow"))
     asyncio.run(_execute_shell_gpt(command))
 
 async def _execute_shell_gpt(command):

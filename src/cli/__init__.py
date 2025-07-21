@@ -5,7 +5,7 @@ import click
 
 @click.group()
 def cli():
-    """🧪 OpenDistillery - Advanced AI Research Platform"""
+    """OpenDistillery - Advanced AI Research Platform"""
     theme.show_banner()
 
 # Register command groups
