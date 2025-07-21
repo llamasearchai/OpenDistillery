@@ -148,6 +148,7 @@ def safety_check(prompt, categories):
     
     # Mock safety analysis
     import random
+    import time
     time.sleep(0.8)
     
     results = {}
