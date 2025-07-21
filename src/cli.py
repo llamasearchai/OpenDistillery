@@ -13,12 +13,12 @@ from typing import Dict, Any, Optional
 from pathlib import Path
 import logging
 
-from .core.compound_system import SystemBuilder, SystemRequirements, SystemArchitecture, ModelConfiguration
-from .agents.base_agent import BaseAgent, AgentCapability, SpecializedAgent
-from .agents.orchestrator import AgentOrchestrator
-from .research.experiment_runner import ExperimentRunner, ExperimentConfiguration
-from .api.enterprise_api import EnterpriseAPI
-from .integrations.salesforce_integration import SalesforceAIIntegration, SalesforceConfig
+from src.core.compound_system import SystemBuilder, SystemRequirements, SystemArchitecture, ModelConfiguration
+from src.agents.base_agent import BaseAgent, AgentCapability, SpecializedAgent
+from src.agents.orchestrator import AgentOrchestrator
+from src.research.experiment_runner import ExperimentRunner, ExperimentConfiguration
+# from src.api.enterprise_api import EnterpriseAPI
+# from src.integrations.salesforce_integration import SalesforceAIIntegration, SalesforceConfig
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

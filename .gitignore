@@ -16,6 +16,7 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -26,52 +27,178 @@ venv/
 ENV/
 env/
 .venv
+.env/
+.virtualenv/
+pipenv/
 
-# IDE
+# IDE & Editors
 .vscode/
 .idea/
 *.swp
 *.swo
+*.tmp
+*~
 .DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Environment variables
+# Environment variables & Configuration
 .env
 .env.local
 .env.*.local
+.envrc
+config.local.*
+*.local
+local_config.py
 
-# Logs
+# Logs & Monitoring
 logs/
 *.log
+*.log.*
+log/
+monitoring/logs/
 
-# Data
+# Database & Cache
 data/
 *.db
 *.sqlite
 *.sqlite3
+*.db-journal
+cache/
+.cache/
+redis.rdb
 
-# ML Models
+# ML Models & AI
 models/
 *.pkl
 *.joblib
 *.h5
 *.pt
 *.pth
+*.onnx
+*.tflite
+*.mlmodel
+checkpoints/
+experiments/
+artifacts/
 
-# Testing
+# Testing & Coverage
 .coverage
 .pytest_cache/
 htmlcov/
 .tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+.coverage.*
+test-results/
+test_output.txt
 
-# Docker
+# Docker & Containers
 docker-compose.override.yml
+.dockerignore
+*.dockerignore
 
-# Jupyter
+# Jupyter & Notebooks
 .ipynb_checkpoints/
 notebooks/scratch/
+*.ipynb_checkpoints
 
-# Production
+# Production & Security
 *.pem
 *.key
 *.crt
-secrets/ 
+*.p12
+*.pfx
+secrets/
+ssl/
+certificates/
+
+# System generated files
+systems/
+integrations/
+temp/
+tmp/
+scratch/
+
+# Package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# OS generated files
+.DS_Store?
+Icon?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.swp
+*~
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Temporary files
+*.tmp
+*.temp
+.temporary/
+
+# Editor specific
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+
+# Documentation build
+docs/_build/
+site/
+_site/
+
+# Profiling
+.prof
+*.prof
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/ 
