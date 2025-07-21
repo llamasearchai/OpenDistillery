@@ -3,6 +3,14 @@
   
   # OpenDistillery
   ## Advanced Compound AI Systems for Enterprise Workflow Transformation
+
+  **Repository:** [llamasearchai/OpenDistillery](https://github.com/llamasearchai/OpenDistillery)  
+  **Documentation:** [OpenDistillery Docs](https://llamasearchai.github.io/OpenDistillery)  
+  **PyPI Package:** [opendistillery](https://pypi.org/project/opendistillery/)  
+  **Author:** Nik Jois (nikjois@llamasearch.ai)  
+  **License:** MIT  
+
+  *A comprehensive enterprise-grade platform for advanced AI agent orchestration, multi-provider model integration, and intelligent workflow automation.*
 </div>
 
 <div align="center">
@@ -23,6 +31,18 @@
 </div>
 
 ---
+
+## Repository Overview
+
+OpenDistillery represents the next evolution in enterprise AI systems, providing a unified platform for advanced compound AI workflows. Built with enterprise-grade security, scalability, and reliability in mind, it serves as the foundation for intelligent automation across diverse business domains.
+
+### Key Repository Features
+
+- **Complete Source Code**: Full access to all components including agents, APIs, and infrastructure
+- **Production Ready**: Battle-tested codebase with comprehensive test coverage and CI/CD
+- **Enterprise Security**: Advanced authentication, authorization, and audit capabilities
+- **Extensible Architecture**: Plugin-based system for custom integrations and workflows
+- **Professional Documentation**: Complete API references, deployment guides, and examples
 
 OpenDistillery is a **production-ready, enterprise-grade compound AI system** demonstrating advanced software engineering capabilities and modern architecture patterns. Built with Python, FastAPI, and Docker, it showcases expertise in distributed systems, microservices architecture, and AI/ML integration at scale.
 
