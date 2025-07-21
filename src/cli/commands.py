@@ -1,111 +1,85 @@
 import click
-import asyncio
 from rich.console import Console
 from rich.panel import Panel
-from rich.syntax import Syntax
 from ..integrations.openai_integration import OpenAIInterface, ShellGPTIntegration
 from ..research.techniques.prompting_plugins.meta_prompting import MetaPromptingEngine
+import asyncio
 
 console = Console()
 
 @click.group()
 def ai():
-    """AI-powered commands and interactions"""
+    """AI-powered commands and interactions."""
     pass
 
+async def _run_async(coroutine):
+    """Helper to run asyncio coroutines."""
+    try:
+        await coroutine
+    except Exception as e:
+        console.print(Panel(f"An error occurred: {e}", title="Error", border_style="red"))
+
 @ai.command()
-@click.option('--query', '-q', prompt='Your question', help='Natural language query')
-@click.option('--stream', is_flag=True, help='Stream response in real-time')
+@click.option('--query', '-q', prompt='Your question', help='Natural language query for the AI.')
+@click.option('--stream', is_flag=True, help='Stream the response in real-time.')
 def chat(query, stream):
-    """Interactive AI chat with OpenDistillery"""
+    """Interactive AI chat with OpenDistillery."""
+    console.print(Panel.fit(f"Query: {query}", title="AI Chat", border_style="cyan"))
     
     if stream:
-        console.print(Panel.fit("AI Response (Streaming):", border_style="cyan"))
-        asyncio.run(_stream_chat(query))
+        asyncio.run(_run_async(_stream_chat(query)))
     else:
-        console.print(Panel.fit("AI Response:", border_style="cyan"))
-        asyncio.run(_standard_chat(query))
+        asyncio.run(_run_async(_standard_chat(query)))
 
 async def _stream_chat(query):
-    """Stream chat response"""
-    from ..integrations.openai_integration import ConversationContext
-    
+    """Streams the chat response."""
     interface = OpenAIInterface()
-    context = ConversationContext(
-        messages=[{"role": "user", "content": query}],
-        system_prompt="You are an expert AI research assistant."
-    )
+    context = {"messages": [{"role": "user", "content": query}], "system_prompt": "You are an expert AI research assistant."}
     
     async for chunk in interface.chat_completion_stream(context):
-        console.print(chunk, end="", style="ai")
-    console.print()  # New line at end
+        console.print(chunk, end="")
+    console.print()
 
 async def _standard_chat(query):
-    """Standard chat response"""
+    """Handles standard, non-streamed chat."""
     interface = OpenAIInterface()
     result = await interface.process_with_tools(query)
     
-    if result["type"] == "text":
-        console.print(result["response"], style="ai")
-    elif result["type"] == "function_calls":
-        console.print(" Function calls executed:", style="warning")
-        for tool_result in result["tool_results"]:
-            console.print(f"  {tool_result['function']}: {tool_result['result']}")
+    if result.get("type") == "function_calls":
+        console.print("Function calls executed:", style="bold yellow")
+        for tool_result in result.get("tool_results", []):
+            console.print(f"  - {tool_result.get('function')}: {tool_result.get('result')}")
+    else:
+        console.print(Panel(result.get("response", "No response."), title="AI Response", border_style="green"))
 
 @ai.command()
-@click.option('--command', '-c', prompt='Describe what you want to do', 
-              help='Natural language command description')
+@click.option('--command', '-c', prompt='Describe the task for the shell', help='Natural language description of a shell command.')
 def shell(command):
-    """Convert natural language to shell commands"""
-    
-    console.print(Panel.fit(f"Converting: {command}", border_style="yellow"))
-    asyncio.run(_execute_shell_gpt(command))
+    """Converts natural language to shell commands."""
+    console.print(Panel.fit(f"Task: {command}", title="Shell Command Conversion", border_style="yellow"))
+    asyncio.run(_run_async(_execute_shell_gpt(command)))
 
 async def _execute_shell_gpt(command):
-    """Execute shell-gpt integration"""
+    """Executes the ShellGPT integration."""
     shell_gpt = ShellGPTIntegration()
     result = await shell_gpt.execute_shell_command(command)
-    
-    console.print(Panel.fit(
-        result.get("response", "No response generated"),
-        title="Generated Shell Commands",
-        border_style="green"
-    ))
+    console.print(Panel(result.get("response", "No command generated."), title="Generated Shell Command", border_style="green"))
 
-@click.command()
-@click.option('--problem', '-p', prompt='Research problem', 
-              help='Complex problem to analyze')
-@click.option('--technique', '-t', 
-              type=click.Choice(['meta_prompting', 'tree_of_thoughts', 'chain_of_density']),
-              default='meta_prompting')
+@ai.command()
+@click.option('--problem', '-p', prompt='Research problem', help='A complex problem for the AI to analyze.')
+@click.option('--technique', '-t', type=click.Choice(['meta_prompting']), default='meta_prompting', help='The research technique to use.')
 def research(problem, technique):
-    """Execute advanced research techniques"""
-    
-    console.print(Panel.fit(
-                    f"Analyzing: {problem}\nUsing: {technique}",
-        title="Research Analysis",
-        border_style="magenta"
-    ))
-    
-    asyncio.run(_execute_research(problem, technique))
+    """Executes advanced AI research techniques."""
+    console.print(Panel.fit(f"Problem: {problem}\nTechnique: {technique}", title="Research Analysis", border_style="magenta"))
+    asyncio.run(_run_async(_execute_research(problem, technique)))
 
 async def _execute_research(problem, technique):
-    """Execute research analysis"""
-    
+    """Executes the specified research technique."""
     if technique == "meta_prompting":
         engine = MetaPromptingEngine()
         result = await engine.execute({"problem": problem})
         
-        console.print(Panel.fit(
-            result["solution"],
-            title=f"Solution (Confidence: {result['confidence']:.2%})",
-            border_style="green"
-        ))
-        
-        console.print(result["visualization"])
-        
-        console.print(Panel.fit(
-            result["meta_analysis"],
-            title="Meta-Analysis",
-            border_style="blue"
-        ))
+        console.print(Panel(result.get("solution", "No solution found."), title=f"Solution (Confidence: {result.get('confidence', 0):.2%})", border_style="green"))
+        if "visualization" in result:
+            console.print(result["visualization"])
+        console.print(Panel(result.get("meta_analysis", "No meta-analysis available."), title="Meta-Analysis", border_style="blue"))

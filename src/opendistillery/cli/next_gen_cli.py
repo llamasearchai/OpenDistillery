@@ -156,7 +156,7 @@ async def _stream_optimization(prompt, techniques, quality_target, time_budget, 
         # Show final results
         best_technique = max(optimization_data["techniques"], key=lambda x: x.get("quality", 0))
         console.print(Panel.fit(
-            f"[bold green]🏆 OPTIMIZATION COMPLETE[/]\n\n"
+            f"[bold green]OPTIMIZATION COMPLETE[/]\n\n"
             f"Best Technique: {best_technique['name']}\n"
             f"Best Quality: {best_technique['quality']:.2%}\n"
             f"Total Time: {sum(t.get('time', 0) for t in optimization_data['techniques']):.1f}s",
@@ -216,7 +216,7 @@ async def _batch_optimization(prompt, techniques, quality_target, time_budget, m
         results_table.add_column("Status", style="blue")
         
         for technique, result in results.items():
-            status = "🏆 Best" if result["quality_score"] == max(r["quality_score"] for r in results.values()) else "✅ Good"
+            status = "Best" if result["quality_score"] == max(r["quality_score"] for r in results.values()) else "Good"
             results_table.add_row(
                 technique,
                 f"{result['quality_score']:.2%}",
@@ -230,7 +230,7 @@ async def _batch_optimization(prompt, techniques, quality_target, time_budget, m
         best_technique = max(results.items(), key=lambda x: x[1]["quality_score"])
         console.print(Panel.fit(
             f"[bold green]{best_technique[1]['optimized_prompt']}[/]",
-            title=f"🏆 Best Result: {best_technique[0]} ({best_technique[1]['quality_score']:.2%})",
+            title=f"Best Result: {best_technique[0]} ({best_technique[1]['quality_score']:.2%})",
             border_style="green"
         ))
         
@@ -443,7 +443,7 @@ async def _show_analytics(technique, days, export):
     overview_table.add_row("Total Requests", f"{analytics_data['total_requests']:,}", " +15%")
     overview_table.add_row("Success Rate", f"{analytics_data['success_rate']:.1%}", " +2%")
     overview_table.add_row("Avg Quality Improvement", f"{analytics_data['average_quality_improvement']:.1%}", " +5%")
-    overview_table.add_row("Avg Processing Time", f"{analytics_data['average_processing_time']:.1f}s", "📉 -8%")
+    overview_table.add_row("Avg Processing Time", f"{analytics_data['average_processing_time']:.1f}s", "-8%")
     overview_table.add_row("Cost Savings", f"${analytics_data['cost_savings']:,.2f}", " +12%")
     overview_table.add_row("User Satisfaction", f"{analytics_data['user_satisfaction']:.1%}", " +3%")
     
@@ -528,7 +528,7 @@ async def _real_time_monitor(host, port, interval):
         memory_usage = np.random.uniform(30, 70)
         disk_usage = np.random.uniform(15, 60)
         
-        health_table = Table(title="💻 System Health")
+        health_table = Table(title="System Health")
         health_table.add_column("Metric", style="cyan")
         health_table.add_column("Value", style="green")
         health_table.add_column("Status", style="yellow")
@@ -643,7 +643,7 @@ def _load_and_validate_config(config_path, validate_only):
         console.print("✅ Configuration validation passed!", style="green")
         
         # Display configuration summary
-        config_table = Table(title="📋 Configuration Summary")
+        config_table = Table(title="Configuration Summary")
         config_table.add_column("Setting", style="cyan")
         config_table.add_column("Value", style="green")
         

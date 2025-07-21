@@ -245,7 +245,7 @@ async def _run_comprehensive_analysis(prompt):
     )
     
     # Complexity
-    complexity_assessment = " High" if complexity_score > 0.7 else "📉 Medium" if complexity_score > 0.4 else " Low"
+    complexity_assessment = "High" if complexity_score > 0.7 else "Medium" if complexity_score > 0.4 else "Low"
     analysis_table.add_row(
         "Complexity",
         f"{complexity_score:.2%}",
@@ -253,7 +253,7 @@ async def _run_comprehensive_analysis(prompt):
     )
     
     # Effectiveness
-    effectiveness_assessment = " Excellent" if effectiveness_score > 0.8 else "👍 Good" if effectiveness_score > 0.6 else " Needs work"
+    effectiveness_assessment = "Excellent" if effectiveness_score > 0.8 else "Good" if effectiveness_score > 0.6 else "Needs work"
     analysis_table.add_row(
         "Effectiveness",
         f"{effectiveness_score:.2%}",
@@ -305,7 +305,7 @@ def _generate_recommendations(safety_report, complexity_score, effectiveness_sco
     if complexity_score < 0.3:
         recommendations.append(" Consider adding more specific instructions")
     elif complexity_score > 0.8:
-        recommendations.append("📉 Simplify prompt structure for better clarity")
+        recommendations.append("Simplify prompt structure for better clarity")
     
     if effectiveness_score < 0.6:
         recommendations.append(" Add examples or step-by-step guidance")
@@ -313,7 +313,7 @@ def _generate_recommendations(safety_report, complexity_score, effectiveness_sco
     if token_efficiency < 0.1:
         recommendations.append("✂ Remove redundant words to improve efficiency")
     elif token_efficiency > 0.2:
-        recommendations.append("📝 Consider expanding with more context")
+        recommendations.append("Consider expanding with more context")
     
     if not recommendations:
         recommendations.append(" Prompt is well-optimized across all metrics!")
@@ -322,12 +322,12 @@ def _generate_recommendations(safety_report, complexity_score, effectiveness_sco
 
 @prompting.command()
 def benchmark():
-    """🏆 Run prompting technique benchmarks"""
+    """Run prompting technique benchmarks"""
     
     console.print(Panel.fit(
         "[bold purple]Prompting Techniques Benchmark Suite[/]\n\n"
         "Comparing performance across multiple dimensions...",
-        title="🏆 Benchmark Suite",
+        title="Benchmark Suite",
         border_style="purple"
     ))
     
@@ -386,7 +386,7 @@ async def _run_benchmark_suite():
                 progress.update(task, advance=1)
     
     # Display benchmark results
-    benchmark_table = Table(title="🏆 Benchmark Results")
+    benchmark_table = Table(title="Benchmark Results")
     benchmark_table.add_column("Test Prompt", style="cyan")
     
     for technique_name in techniques.keys():

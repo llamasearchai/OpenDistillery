@@ -175,7 +175,6 @@ async def _batch_optimization(prompt, techniques, quality_target, time_budget, m
         TextColumn("[progress.description]{task.description}"),
         BarColumn(),
         TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-        TimeElapsedColumn(),
         console=console,
         transient=True
     ) as progress:
@@ -643,7 +642,7 @@ def _load_and_validate_config(config_path, validate_only):
         console.print("Complete Configuration validation passed!", style="green")
         
         # Display configuration summary
-        config_table = Table(title="📋 Configuration Summary")
+        config_table = Table(title="Configuration Summary")
         config_table.add_column("Setting", style="cyan")
         config_table.add_column("Value", style="green")
         

@@ -860,3 +860,33 @@ class PromptingOrchestrator:
                 for strategy in set(strategies_used)
             }
         } 
+
+class PromptingStrategies:
+    _strategy_map = {
+        'chain_of_thought': "Chain-of-Thought",
+        'tree_of_thought': "Tree-of-Thought",
+        'self_consistency': "Self-Consistency",
+    }
+
+    def __init__(self, technique=None):
+        self.technique = technique
+
+    @classmethod
+    def get_strategy_map(cls):
+        return cls._strategy_map
+
+    @classmethod
+    def get_strategy(cls, name):
+        if name in cls._strategy_map:
+            return cls(technique=name)
+        return None
+
+    async def enhance_prompt(self, prompt):
+        if self.technique == 'chain_of_thought':
+            return f"[Chain-of-Thought] {prompt}\n\nLet's think step by step:"
+        elif self.technique == 'tree_of_thought':
+            return f"[Tree-of-Thought] {prompt}\n\nLet me explore different reasoning paths:"
+        elif self.technique == 'self_consistency':
+            return f"[Self-Consistency] {prompt}\n\nLet me consider this from multiple angles:"
+        else:
+            return f"[{self._strategy_map.get(self.technique, 'Unknown')}] {prompt}" 

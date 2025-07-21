@@ -3,16 +3,22 @@ from .commands import ai
 import click
 
 def show_banner():
-    """Display OpenDistillery banner"""
-    print("\n" + "="*60)
-    print("  OpenDistillery - Advanced AI Research Platform")
-    print("  Enterprise-Grade Compound AI Systems")
-    print("="*60 + "\n")
+    """Displays the OpenDistillery banner."""
+    banner = """
+    ============================================================
+      OpenDistillery - Advanced AI Research Platform
+      Enterprise-Grade Compound AI Systems
+    ============================================================
+    """
+    click.echo(banner)
 
-@click.group()
-def cli():
-    """OpenDistillery - Advanced AI Research Platform"""
-    show_banner()
+@click.group(invoke_without_command=True)
+@click.pass_context
+def cli(ctx):
+    """OpenDistillery - Advanced AI Research Platform."""
+    if ctx.invoked_subcommand is None:
+        show_banner()
+        click.echo(ctx.get_help())
 
 # Register command groups
 cli.add_command(ai)

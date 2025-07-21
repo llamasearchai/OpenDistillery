@@ -5,8 +5,8 @@
 
 set -e
 
-echo "🚀 OpenDistillery PyPI Publishing Script"
-echo "========================================"
+echo "OpenDistillery PyPI Publishing Script"
+echo "======================================"
 
 # Check if packages exist
 if [ ! -d "dist" ] || [ -z "$(ls -A dist/)" ]; then
